@@ -1,0 +1,17 @@
+d02-XRP-historical.csv
+d02-BSV-historical.csv
+d02-QTUM-historical.csv
+d02-ETC-historical.csv
+d02-XLM-historical.csv
+d02-BCH-historical.csv
+d02-ETH-historical.csv
+d02-OMG-historical.csv
+d02-LSK-historical.csv
+d02-BTG-historical.csv
+d02-DOGE-historical.csv
+d02-XMR-historical.csv
+d02-ZEC-historical.csv
+d02-LTC-historical.csv
+d02-BTC-historical.csv
+d02-NEO-historical.csv
+d02-DASH-historical.csv
