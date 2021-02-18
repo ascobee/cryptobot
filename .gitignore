@@ -19,7 +19,7 @@ env/
 
 # Data/Logs #
 #############
-secrets.py
+secret.py
 *.txt
 *.csv
 archive/
