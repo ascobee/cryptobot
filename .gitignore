@@ -19,10 +19,13 @@ env/
 
 # Data/Logs #
 #############
-secret.py
 to-do-list.txt
 archive/
 
 # VSCode #
 ##########
 .vscode
+
+# Secret #
+##########
+secrets.py

@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # listfiles.py
 
-
 import os
 
 

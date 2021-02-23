@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # collectdata.py
 
-from secret import EMAIL, PASSWORD
+from .. import constant as const
+from ...conf.secrets import EMAIL, PASSWORD
 
 import pandas as pd
 import robin_stocks as r
@@ -26,7 +27,7 @@ def collect_historical_data(ticker, interval='hour', span='week', bounds='24_7')
         df = pd.DataFrame(hist[i], index=[i])
         hist_df = pd.concat([hist_df, df])
 
-    hist_df.to_csv(f"../data/crypto/01_raw/d01-{ticker}-historical.csv", " ")
+    hist_df.to_csv(f"../../data/crypto/01_raw/d01-{ticker}-historical.csv", " ")
 
     print(
         f"Raw historical data over the time frame {span} for {ticker} has been saved.")
@@ -47,7 +48,7 @@ def collect_crypto_tickers():
 
 def save_crypto_list(crypto_list):
     try:
-        f = open("../data/crypto/03_processed/available-crypto-tickers.txt", "w")
+        f = open("../../data/crypto/03_processed/available-crypto-tickers.txt", "w")
         f.writelines("\n".join(crypto_list))
         f.close()
         return print("The list of available cryptocurrencies has been updated.")
@@ -58,7 +59,7 @@ def save_crypto_list(crypto_list):
 def load_crypto_list():
     try:
         full_crypto_list = []
-        with open("../data/crypto/03_processed/available-crypto-tickers.txt", "r") as f:
+        with open("../../data/crypto/03_processed/available-crypto-tickers.txt", "r") as f:
             for line in f:
                 full_crypto_list.append(line.strip("\n"))
         return full_crypto_list

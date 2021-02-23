@@ -2,7 +2,7 @@
 # login.py
 
 import robin_stocks as r
-from secret import EMAIL, PASSWORD
+from ..conf.secrets import EMAIL, PASSWORD
 # import pathlib
 
 

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # graphstocks.py
 
-from secret import EMAIL, PASSWORD
-from collectdata import collect_historical_data
+from ..conf.secrets import EMAIL, PASSWORD
+from .d00_utils.collectdata import collect_historical_data
 
 import matplotlib.pyplot as plt
 import pandas as pd

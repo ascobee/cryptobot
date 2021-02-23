@@ -3,13 +3,11 @@
 
 import pandas as pd
 
-from ..d01_data.listfiles import create_list_of_files
-from ..d01_data.load_save_data import load_csv_data, load_txt_data, save_csv_data
-# from sklearn.feature_selection import VarianceThreshold
 from .. import constant as const
-
-# INTERMEDIATE_DIR = "./data/crypto/02_intermediate/"
-# INTERMEDIATE_PREFIX = "d02"
+from ..d01_data.listfiles import create_list_of_files
+from ..d01_data.load_save_data import (load_csv_data,
+                                       load_txt_data,
+                                       save_csv_data)
 
 
 def remove_low_variance_features(historical_df):
