@@ -6,17 +6,17 @@ from .d00_utils.collectdata import collect_historical_data
 
 import matplotlib.pyplot as plt
 import pandas as pd
-import robin_stocks as r
+import robin_stocks.robinhood as rh
 
 ticker_list = ['BTC', 'DOGE']
 # ticker_list = ['DOGE']
 
 
 def graph_stocks(ticker_list, interval='hour', span='week', bounds='regular'):
-    login = r.login(EMAIL, PASSWORD)
+    login = rh.login(EMAIL, PASSWORD)
 
     for ticker in ticker_list:
-        name = r.get_name_by_symbol(ticker)
+        name = rh.get_name_by_symbol(ticker)
         # name = r.get_crypto_info(ticker, info='name')
         hist_df = collect_historical_data(ticker, interval, span, bounds)
 

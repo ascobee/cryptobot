@@ -5,17 +5,17 @@ from .. import constant as const
 from ...conf.secrets import EMAIL, PASSWORD
 
 import pandas as pd
-import robin_stocks as r
+import robin_stocks.robinhood as rh
 
 
 def collect_historical_data(ticker, interval='hour', span='week', bounds='24_7'):
-    login = r.login(EMAIL, PASSWORD)
+    login = rh.login(EMAIL, PASSWORD)
     all_crypto_tickers = load_crypto_list()
 
     if ticker not in all_crypto_tickers:
         return pd.DataFrame()
 
-    hist = r.get_crypto_historicals(
+    hist = rh.get_crypto_historicals(
         ticker,
         interval=interval,
         span=span,
@@ -36,7 +36,7 @@ def collect_historical_data(ticker, interval='hour', span='week', bounds='24_7')
 
 
 def collect_crypto_tickers():
-    crypto_info_dicts = r.get_crypto_currency_pairs(info='asset_currency')
+    crypto_info_dicts = rh.get_crypto_currency_pairs(info='asset_currency')
     crypto_list = []
 
     for currency in crypto_info_dicts:

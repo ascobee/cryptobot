@@ -6,14 +6,14 @@ from .d00_utils.collectdata import collect_historical_data
 
 import matplotlib.pyplot as plt
 import pandas as pd
-import robin_stocks as r
+import robin_stocks.robinhood as rh
 
 # ticker_list = ['DOGE']
 ticker_list = ['PENN', 'DOGE']
 
 
 def graph_crypto(ticker_list, interval='hour', span='week', bounds='24_7'):
-    login = r.login(EMAIL, PASSWORD)
+    login = rh.login(EMAIL, PASSWORD)
 
     for ticker in ticker_list:
         hist_df = collect_historical_data(ticker, interval, span, bounds)
@@ -22,7 +22,7 @@ def graph_crypto(ticker_list, interval='hour', span='week', bounds='24_7'):
             print(f"Warning: Unable to process request for {ticker}.")
             continue
 
-        name = r.get_crypto_info(ticker, info='name')
+        name = rh.get_crypto_info(ticker, info='name')
 
         hist_df['begins_at'] = pd.to_datetime(
             hist_df['begins_at'], infer_datetime_format=True)
