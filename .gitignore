@@ -29,3 +29,4 @@ archive/
 # Secret #
 ##########
 secrets.py
+00_ref/

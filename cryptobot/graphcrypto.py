@@ -1,15 +1,12 @@
 #!/usr/bin/env python3
 # graphcrypto.py
 
-from ..conf.secrets import EMAIL, PASSWORD
-from .d00_utils.collectdata import collect_historical_data
-
 import matplotlib.pyplot as plt
 import pandas as pd
 import robin_stocks.robinhood as rh
+from conf.secrets import EMAIL, PASSWORD
 
-# ticker_list = ['DOGE']
-ticker_list = ['PENN', 'DOGE']
+from cryptobot.d00_utils.collectdata import collect_historical_data
 
 
 def graph_crypto(ticker_list, interval='hour', span='week', bounds='24_7'):
@@ -42,6 +39,3 @@ def graph_crypto(ticker_list, interval='hour', span='week', bounds='24_7'):
         plt.show()
 
     return
-
-
-# graph_crypto(ticker_list, 'day', '5year', '24_7')

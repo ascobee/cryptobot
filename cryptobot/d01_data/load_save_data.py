@@ -6,50 +6,45 @@ import pandas as pd
 
 def load_csv_data(dir_name, file_name):
     try:
-        full_path = dir_name + file_name
-        data_df = pd.read_csv(full_path, sep=" ", index_col=0)
-
+        data_df = pd.read_csv(f"{dir_name}{file_name}", sep=" ", index_col=0)
         return data_df
-    except FileNotFoundError as err:
-        print(f"ERROR: Failed to load \'{file_name}\'\n{err}\n")
 
+    except FileNotFoundError as err:
+        print(f"Failed to load \'{file_name}\'\n{err}\n")
         return pd.DataFrame()
 
 
-# def load_txt_data(dir_name, file_name):
-#     try:
-#         full_path = dir_name + file_name
-#         data_df = pd.read_table(full_path, sep=" ", header=0, names=['file_names'])
+def load_json_data(dir_name, file_name):
+    try:
+        data_df = pd.read_json(f"{dir_name}{file_name}")
+        return data_df
 
-#         return data_df
-#     except FileNotFoundError as err:
-#         print(f"ERROR: Failed to load \'{file_name}\'\n{err}\n")
-
-#         return pd.DataFrame()
+    except FileNotFoundError as err:
+        print(f"Failed to load \'{file_name}\'\n{err}\n")
+        return pd.DataFrame()
 
 
 def load_txt_data(dir_name, file_name):
     list_of_files = []
     try:
-        full_path = dir_name + file_name
-        with open(full_path, "r") as f:
+        with open(f"{dir_name}{file_name}", "r") as f:
             for line in f:
                 list_of_files.append(line.strip("\n"))
 
         return list_of_files
-    except FileNotFoundError as err:
-        print(f"ERROR: Failed to load \'{file_name}\'\n{err}\n")
 
+    except FileNotFoundError as err:
+        print(f"Failed to load \'{file_name}\'\n{err}\n")
         return list_of_files
 
 
 def save_csv_data(dir_name, file_name, prefix, data_df):
     try:
         new_file_name = prefix + file_name[3:]
-        full_path = dir_name + new_file_name
+        data_df.to_csv(f"{dir_name}{new_file_name}", sep=" ")
+        print(f"Saved data to \'{new_file_name}\'")
+        return
 
-        data_df.to_csv(full_path, sep=" ")
-
-        return print(f"Saved data to \'{new_file_name}\'")
     except FileNotFoundError as err:
-        return print(f"ERROR: Failed to save data to \'{new_file_name}\'\n{err}\n")
+        print(f"Failed to save data to \'{new_file_name}\'\n{err}\n")
+        return

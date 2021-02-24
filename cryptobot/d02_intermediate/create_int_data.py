@@ -2,12 +2,9 @@
 # create_int_data.py
 
 import pandas as pd
-
-from .. import constant as const
-from ..d01_data.listfiles import create_list_of_files
-from ..d01_data.load_save_data import (load_csv_data,
-                                       load_txt_data,
-                                       save_csv_data)
+from cryptobot.constant import INTERMEDIATE_DIR, INTERMEDIATE_PREFIX
+from cryptobot.d01_data.listfiles import create_list_of_files
+from cryptobot.d01_data.load_save_data import *
 
 
 def remove_low_variance_features(historical_df):
@@ -27,11 +24,12 @@ def clean_all_raw_data_files(dir_name, file_name):
         raw_data_df = load_csv_data(dir_name, data_file)
         clean_df = remove_low_variance_features(raw_data_df)
         save_csv_data(
-            const.INTERMEDIATE_DIR,
+            INTERMEDIATE_DIR,
             data_file,
-            const.INTERMEDIATE_PREFIX,
+            INTERMEDIATE_PREFIX,
             clean_df
         )
-    create_list_of_files(const.INTERMEDIATE_DIR)
+    create_list_of_files(INTERMEDIATE_DIR)
 
-    return print("Finished.")
+    print("Finished.")
+    return
