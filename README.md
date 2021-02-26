@@ -8,4 +8,6 @@ Cryptobot is a Python project that I'm currently obsessed with. This user-friend
 
 ## Usage
 
+Most of the features require you to be logged in to your Robinhood account. Add your login credentials (`EMAIL` and `PASSWORD`) to `/cryptobot/conf/secrets.py`. Please note that 2-factor authentication is not currently supported.
+
 Use `python -m cryptobot.cli` to start the main menu.
