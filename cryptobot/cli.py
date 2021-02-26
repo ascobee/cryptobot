@@ -5,7 +5,7 @@ from os import name, system
 
 import robin_stocks.robinhood as rh
 
-from cryptobot.constant import PROCESSED_DIR, TRADABLE_CRYPTOS
+from cryptobot.constant import REF_DIR, TRADABLE_CRYPTOS
 from cryptobot.d00_utils.tradecrypto import *
 from cryptobot.d01_data.load_save_data import load_json_data
 from cryptobot.ordercrypto import OrderCrypto
@@ -74,8 +74,8 @@ def menu_crypto_trading():
 # DO I NEED THIS?
 def list_tradable_crypto():
     print("****** Tradable Cryptos ******",
-          load_json_data(PROCESSED_DIR, TRADABLE_CRYPTOS),
-          "\n0 - RETURN TO MAIN MENU",
+          load_json_data(REF_DIR, TRADABLE_CRYPTOS),
+        #   "\n0 - RETURN TO MAIN MENU",
           sep="\n",
           end="\n\n"
           )
