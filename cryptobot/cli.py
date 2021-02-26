@@ -71,14 +71,12 @@ def menu_crypto_trading():
     return switcher[command]()
 
 
-# DO I NEED THIS?
 def list_tradable_crypto():
-    print("****** Tradable Cryptos ******",
-          load_json_data(REF_DIR, TRADABLE_CRYPTOS),
-        #   "\n0 - RETURN TO MAIN MENU",
-          sep="\n",
-          end="\n\n"
-          )
+    print(
+        "\n****** Tradable Cryptos ******\n",
+        load_json_data(REF_DIR, TRADABLE_CRYPTOS),
+        "\n"
+    )
 
     return menu_crypto_trading()
 
